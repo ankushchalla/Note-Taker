@@ -11,4 +11,4 @@ After clicking the **Get Started** button, enter a note title in the **Note Titl
 
 
 ## Screenshots
-![Screenshot 1](https://github.com/ankushchalla/README-Generator/blob/master/screenshots/screenshot.png)
+![Screenshot 1](https://github.com/ankushchalla/README-Generator/blob/main/screenshots/screenshot.png)
