@@ -36,7 +36,6 @@ module.exports = (app) => {
     });
 
     app.delete('/api/notes/:id', (req, res) => {
-        console.log("delete request");
         let id = parseInt(req.params.id);
         if (isNaN(id)) {
             res.sendStatus(400)
