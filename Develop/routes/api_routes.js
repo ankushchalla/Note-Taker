@@ -3,9 +3,8 @@ let fs = require('fs');
 
 module.exports = (app) => {
     app.get('/api/notes', (req, res) => {
-        fs.readFile('./db/db.json', function (err, data) {
-            res.send(data);
-        });
+        let data = JSON.parse(fs.readFileSync('./db/db.json'));
+        res.json(data);
     });
 
     app.post('/api/notes', (req, res) => {
@@ -25,17 +24,32 @@ module.exports = (app) => {
             }
         }
         let newNote = {
-            id: allNotes.length, 
+            id: allNotes.length,
             title: title,
             text: text
         }
-        console.log(newNote);
         allNotes.push(newNote);
+        fs.writeFile('./db/db.json', JSON.stringify(allNotes), function (err) {
+            if (err) throw err;
+        });
         res.send(newNote);
-        console.log("allNotes", allNotes);
     });
 
-    app.delete('/api/notes:id', (req, res) => {
-
+    app.delete('/api/notes/:id', (req, res) => {
+        console.log("delete request");
+        let id = parseInt(req.params.id);
+        if (isNaN(id)) {
+            res.sendStatus(400)
+        }
+        else {
+            let data = JSON.parse(fs.readFileSync('./db/db.json', 'utf-8'));
+            data.splice(id, 1);
+            for (let i = 0; i < data.length; i++) {
+                data[0].id = i;
+            }
+            fs.writeFile('./db/db.json', JSON.stringify(data), function (err) {
+                if (err) throw err;
+            });
+        }
     });
 }
