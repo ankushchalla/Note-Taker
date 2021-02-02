@@ -7,7 +7,7 @@ The user interacts with a front-end interface to write, save, and delete notes, 
 To get your developement enviorment running, download the above folders. Note that if you do not maintain the original folder structure, you will have to rewrite node require paths and handle other relative path related issues. This app uses the Express npm package. 
 
 ## Usage
-After clicking the **Get Started** button, enter a note title in the **Note Title** section and your note in the **Note Text** section. Click on the save icon, and your note will be displayed in the saved notes column on the left. To delete a note, simply click on the trash can icon next to note.
+Visit the website [here](https://salty-tor-46374.herokuapp.com/). After clicking the **Get Started** button, enter a note title in the **Note Title** section and your note in the **Note Text** section. Click on the save icon, and your note will be displayed in the saved notes column on the left. To delete a note, simply click on the trash can icon next to note.
 
 
 ## Screenshots
